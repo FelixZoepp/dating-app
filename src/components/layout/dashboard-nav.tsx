@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { Home, Heart, MessageCircle, User, Crown, Settings, LogOut, Shield } from 'lucide-react';
+import { Home, Heart, MessageCircle, User, Crown, LogOut, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 
@@ -33,15 +33,14 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
   ];
 
   return (
-    <nav className="bg-white border-b border-zinc-200 sticky top-0 z-40">
+    <nav className="bg-surface border-b border-border sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/dashboard" className="text-xl font-bold tracking-tight">
-            <span className="text-zinc-900">Founder</span>
-            <span className="text-amber-600">Match</span>
+            <span className="text-foreground">Founder</span>
+            <span className="text-accent">Match</span>
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {links.map((link) => (
               <Link
@@ -50,8 +49,8 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
                 className={cn(
                   'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                   pathname === link.href || pathname.startsWith(link.href + '/')
-                    ? 'bg-amber-50 text-amber-700'
-                    : 'text-zinc-500 hover:text-zinc-700 hover:bg-zinc-50'
+                    ? 'bg-accent-muted text-accent'
+                    : 'text-text-secondary hover:text-foreground hover:bg-surface-2'
                 )}
               >
                 <link.icon className="w-4 h-4" />
@@ -64,8 +63,8 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
                 className={cn(
                   'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                   pathname.startsWith('/admin')
-                    ? 'bg-red-50 text-red-700'
-                    : 'text-zinc-500 hover:text-zinc-700 hover:bg-zinc-50'
+                    ? 'bg-error/15 text-error'
+                    : 'text-text-secondary hover:text-foreground hover:bg-surface-2'
                 )}
               >
                 <Shield className="w-4 h-4" />
@@ -75,21 +74,14 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
           </div>
 
           <div className="flex items-center gap-3">
-            {plan !== 'basic' && (
-              <Badge variant="premium">{plan}</Badge>
-            )}
-            <span className="text-sm text-zinc-600 hidden sm:block">{firstName}</span>
-            <button
-              onClick={handleLogout}
-              className="text-zinc-400 hover:text-zinc-600 transition-colors"
-              title="Abmelden"
-            >
+            {plan !== 'basic' && <Badge variant="premium">{plan}</Badge>}
+            <span className="text-sm text-text-secondary hidden sm:block">{firstName}</span>
+            <button onClick={handleLogout} className="text-text-secondary hover:text-foreground transition-colors" title="Abmelden">
               <LogOut className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* Mobile nav */}
         <div className="flex md:hidden items-center gap-1 pb-2 overflow-x-auto">
           {links.map((link) => (
             <Link
@@ -98,8 +90,8 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
               className={cn(
                 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap',
                 pathname === link.href || pathname.startsWith(link.href + '/')
-                  ? 'bg-amber-50 text-amber-700'
-                  : 'text-zinc-500 hover:text-zinc-700'
+                  ? 'bg-accent-muted text-accent'
+                  : 'text-text-secondary hover:text-foreground'
               )}
             >
               <link.icon className="w-3.5 h-3.5" />
