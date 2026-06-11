@@ -54,17 +54,17 @@ export default function RegisterPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-zinc-50 flex items-center justify-center px-4">
-        <div className="w-full max-w-md text-center">
-          <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
-            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
+        <div className="w-full max-w-md text-center animate-fade-in">
+          <div className="bg-surface p-8 rounded-2xl border border-border">
+            <div className="w-16 h-16 bg-success/15 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-xl font-bold text-zinc-900 mb-2">Bestätige deine E-Mail</h2>
-            <p className="text-zinc-500 text-sm">
-              Wir haben dir eine E-Mail an <strong>{email}</strong> gesendet. Klicke auf den Link, um dein Konto zu aktivieren.
+            <h2 className="text-xl font-bold text-foreground mb-2">Bestätige deine E-Mail</h2>
+            <p className="text-text-secondary text-sm">
+              Wir haben dir eine E-Mail an <strong className="text-foreground">{email}</strong> gesendet. Klicke auf den Link, um dein Konto zu aktivieren.
             </p>
           </div>
         </div>
@@ -73,18 +73,18 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-bold tracking-tight">
-            <span className="text-zinc-900">Founder</span>
-            <span className="text-amber-600">Match</span>
+            <span className="text-foreground">Founder</span>
+            <span className="text-accent">Match</span>
           </Link>
-          <h1 className="text-2xl font-bold text-zinc-900 mt-6 mb-2">Bewirb dich jetzt</h1>
-          <p className="text-zinc-500 text-sm">Erstelle dein Profil in wenigen Minuten.</p>
+          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2">Bewirb dich jetzt</h1>
+          <p className="text-text-secondary text-sm">Erstelle dein Profil in wenigen Minuten.</p>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+        <div className="bg-surface p-8 rounded-2xl border border-border">
           <form onSubmit={handleRegister} className="space-y-4">
             <Input
               id="email"
@@ -113,16 +113,16 @@ export default function RegisterPage() {
               placeholder="Passwort wiederholen"
               required
             />
-            {error && <p className="text-sm text-red-500">{error}</p>}
+            {error && <p className="text-sm text-error">{error}</p>}
             <Button type="submit" className="w-full" size="lg" disabled={loading}>
               {loading ? 'Wird erstellt...' : 'Account erstellen'}
             </Button>
           </form>
         </div>
 
-        <p className="text-center text-sm text-zinc-500 mt-6">
+        <p className="text-center text-sm text-text-secondary mt-6">
           Bereits registriert?{' '}
-          <Link href="/login" className="text-amber-600 font-medium hover:text-amber-700">
+          <Link href="/login" className="text-accent font-medium hover:text-accent-hover">
             Anmelden
           </Link>
         </p>

@@ -33,24 +33,24 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-bold tracking-tight">
-            <span className="text-zinc-900">Founder</span>
-            <span className="text-amber-600">Match</span>
+            <span className="text-foreground">Founder</span>
+            <span className="text-accent">Match</span>
           </Link>
-          <h1 className="text-2xl font-bold text-zinc-900 mt-6 mb-2">Passwort zurücksetzen</h1>
-          <p className="text-zinc-500 text-sm">Gib deine E-Mail ein und wir senden dir einen Reset-Link.</p>
+          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2">Passwort zurücksetzen</h1>
+          <p className="text-text-secondary text-sm">Gib deine E-Mail ein und wir senden dir einen Reset-Link.</p>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+        <div className="bg-surface p-8 rounded-2xl border border-border">
           {sent ? (
             <div className="text-center">
-              <p className="text-zinc-700 mb-4">
-                Falls ein Account mit <strong>{email}</strong> existiert, erhältst du eine E-Mail mit einem Reset-Link.
+              <p className="text-text-secondary mb-4">
+                Falls ein Account mit <strong className="text-foreground">{email}</strong> existiert, erhältst du eine E-Mail mit einem Reset-Link.
               </p>
-              <Link href="/login" className="text-amber-600 font-medium hover:text-amber-700 text-sm">
+              <Link href="/login" className="text-accent font-medium hover:text-accent-hover text-sm">
                 Zurück zum Login
               </Link>
             </div>
@@ -65,7 +65,7 @@ export default function ForgotPasswordPage() {
                 placeholder="deine@email.de"
                 required
               />
-              {error && <p className="text-sm text-red-500">{error}</p>}
+              {error && <p className="text-sm text-error">{error}</p>}
               <Button type="submit" className="w-full" size="lg" disabled={loading}>
                 {loading ? 'Wird gesendet...' : 'Reset-Link senden'}
               </Button>
@@ -73,8 +73,8 @@ export default function ForgotPasswordPage() {
           )}
         </div>
 
-        <p className="text-center text-sm text-zinc-500 mt-6">
-          <Link href="/login" className="text-amber-600 font-medium hover:text-amber-700">
+        <p className="text-center text-sm text-text-secondary mt-6">
+          <Link href="/login" className="text-accent font-medium hover:text-accent-hover">
             Zurück zum Login
           </Link>
         </p>

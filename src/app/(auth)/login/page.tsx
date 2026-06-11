@@ -33,18 +33,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-bold tracking-tight">
-            <span className="text-zinc-900">Founder</span>
-            <span className="text-amber-600">Match</span>
+          <Link href="/" className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)]">
+            <span className="text-foreground">Founder</span>
+            <span className="text-accent">Match</span>
           </Link>
-          <h1 className="text-2xl font-bold text-zinc-900 mt-6 mb-2">Willkommen zurück</h1>
-          <p className="text-zinc-500 text-sm">Melde dich an, um deine Matches zu sehen.</p>
+          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2">Willkommen zurück</h1>
+          <p className="text-text-secondary text-sm">Melde dich an, um deine Matches zu sehen.</p>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+        <div className="bg-surface p-8 rounded-2xl border border-border">
           <form onSubmit={handleLogin} className="space-y-4">
             <Input
               id="email"
@@ -64,22 +64,22 @@ export default function LoginPage() {
               placeholder="••••••••"
               required
             />
-            {error && <p className="text-sm text-red-500">{error}</p>}
+            {error && <p className="text-sm text-error">{error}</p>}
             <Button type="submit" className="w-full" size="lg" disabled={loading}>
               {loading ? 'Wird angemeldet...' : 'Anmelden'}
             </Button>
           </form>
 
           <div className="mt-4 text-center">
-            <Link href="/forgot-password" className="text-sm text-amber-600 hover:text-amber-700">
+            <Link href="/forgot-password" className="text-sm text-accent hover:text-accent-hover">
               Passwort vergessen?
             </Link>
           </div>
         </div>
 
-        <p className="text-center text-sm text-zinc-500 mt-6">
+        <p className="text-center text-sm text-text-secondary mt-6">
           Noch kein Account?{' '}
-          <Link href="/register" className="text-amber-600 font-medium hover:text-amber-700">
+          <Link href="/register" className="text-accent font-medium hover:text-accent-hover">
             Jetzt bewerben
           </Link>
         </p>
