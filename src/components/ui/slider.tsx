@@ -15,8 +15,8 @@ export function Slider({ label, value, onChange, min = 1, max = 5, labels }: Sli
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-2">
-        <label className="text-sm font-medium text-foreground">{label}</label>
-        <span className="text-sm font-semibold text-accent">{value}/{max}</span>
+        <label className="text-sm font-semibold text-foreground font-[family-name:var(--font-body)]">{label}</label>
+        <span className="text-sm font-semibold text-accent font-[family-name:var(--font-body)]">{value}/{max}</span>
       </div>
       <input
         type="range"
@@ -26,13 +26,13 @@ export function Slider({ label, value, onChange, min = 1, max = 5, labels }: Sli
         onChange={(e) => onChange(Number(e.target.value))}
         className={cn(
           'w-full h-2 bg-surface-2 rounded-full appearance-none cursor-pointer',
-          '[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-accent [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer'
+          '[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-accent-container [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-md'
         )}
       />
       {labels && (
         <div className="flex justify-between mt-1">
           {labels.map((l) => (
-            <span key={l} className="text-xs text-text-secondary">{l}</span>
+            <span key={l} className="text-xs text-text-secondary font-[family-name:var(--font-body)]">{l}</span>
           ))}
         </div>
       )}

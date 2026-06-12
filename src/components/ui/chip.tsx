@@ -16,10 +16,10 @@ export function Chip({ label, selected, onClick, disabled }: ChipProps) {
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-200 cursor-pointer',
+        'px-5 py-3 rounded-full border text-sm font-medium transition-all duration-200 cursor-pointer font-[family-name:var(--font-body)]',
         selected
-          ? 'border-accent bg-accent-muted text-accent'
-          : 'border-border bg-surface text-text-secondary hover:border-accent/50 hover:text-foreground',
+          ? 'border-accent-container bg-accent-container text-on-primary shadow-md shadow-accent-container/20'
+          : 'border-border-light bg-white text-text-secondary hover:border-border hover:text-foreground',
         disabled && 'opacity-50 cursor-not-allowed'
       )}
     >

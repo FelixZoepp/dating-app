@@ -33,10 +33,10 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
   ];
 
   return (
-    <nav className="bg-surface border-b border-border sticky top-0 z-40">
+    <nav className="bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/dashboard" className="text-xl font-bold tracking-tight">
+          <Link href="/dashboard" className="text-xl font-bold tracking-tight font-[family-name:var(--font-display)]">
             <span className="text-foreground">Founder</span>
             <span className="text-accent">Match</span>
           </Link>
@@ -47,7 +47,7 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                  'flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-colors',
                   pathname === link.href || pathname.startsWith(link.href + '/')
                     ? 'bg-accent-muted text-accent'
                     : 'text-text-secondary hover:text-foreground hover:bg-surface-2'
@@ -61,7 +61,7 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
               <Link
                 href="/admin"
                 className={cn(
-                  'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                  'flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-colors',
                   pathname.startsWith('/admin')
                     ? 'bg-error/15 text-error'
                     : 'text-text-secondary hover:text-foreground hover:bg-surface-2'
@@ -88,7 +88,7 @@ export function DashboardNav({ firstName, isAdmin, plan }: DashboardNavProps) {
               key={link.href}
               href={link.href}
               className={cn(
-                'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap',
+                'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap',
                 pathname === link.href || pathname.startsWith(link.href + '/')
                   ? 'bg-accent-muted text-accent'
                   : 'text-text-secondary hover:text-foreground'

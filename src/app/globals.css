@@ -1,20 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0C0E13;
-  --color-foreground: #F4F1EA;
-  --color-surface: #14181F;
-  --color-surface-2: #1C212B;
-  --color-border: #272D39;
-  --color-accent: #CDA349;
-  --color-accent-hover: #D4B05A;
-  --color-accent-muted: rgba(205, 163, 73, 0.15);
-  --color-text-secondary: #8A8F98;
-  --color-success: #4ADE80;
-  --color-error: #EF4444;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --color-background: #FBF9F9;
+  --color-foreground: #1B1C1C;
+  --color-surface: #F5F3F3;
+  --color-surface-2: #EFEDED;
+  --color-surface-high: #E9E8E7;
+  --color-border: #D0C5AF;
+  --color-border-light: #E4E2E2;
+  --color-accent: #735C00;
+  --color-accent-hover: #574500;
+  --color-accent-bright: #D4AF37;
+  --color-accent-muted: rgba(115, 92, 0, 0.08);
+  --color-accent-container: #D4AF37;
+  --color-text-secondary: #4D4635;
+  --color-text-muted: rgba(27, 28, 28, 0.5);
+  --color-outline: #7F7663;
+  --color-success: #2E7D32;
+  --color-error: #BA1A1A;
+  --color-on-primary: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
 }
 
 body {
@@ -30,8 +37,8 @@ html {
 }
 
 ::selection {
-  background: rgba(205, 163, 73, 0.3);
-  color: #F4F1EA;
+  background: rgba(212, 175, 55, 0.25);
+  color: #1B1C1C;
 }
 
 ::-webkit-scrollbar {
@@ -43,12 +50,8 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #272D39;
+  background: #D0C5AF;
   border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3A4252;
 }
 
 .line-clamp-2 {
@@ -58,20 +61,81 @@ html {
   overflow: hidden;
 }
 
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.4s ease-out;
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(205, 163, 73, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(205, 163, 73, 0); }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-pulse-gold {
-  animation: pulse-gold 2s ease-in-out infinite;
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes goldGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 20px 4px rgba(212, 175, 55, 0.15); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out; }
+.animate-fade-in-scale { animation: fadeInScale 0.4s ease-out; }
+.animate-slide-up { animation: slideUp 0.6s ease-out; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-gold-glow { animation: goldGlow 2.5s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #735C00, #D4AF37, #735C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium card shadow */
+.shadow-premium {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+}
+
+/* Gold border card */
+.border-gold {
+  border: 1px solid #E5D291;
+}
+
+/* Profile card overlay gradient */
+.overlay-gradient {
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
 }

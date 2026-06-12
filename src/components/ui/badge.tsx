@@ -9,13 +9,13 @@ export function Badge({ className, variant = 'default', ...props }: BadgeProps) 
   return (
     <span
       className={cn(
-        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+        'inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider font-[family-name:var(--font-body)]',
         {
           'bg-surface-2 text-text-secondary': variant === 'default',
-          'bg-success/15 text-success': variant === 'success',
-          'bg-accent-muted text-accent': variant === 'warning',
-          'bg-error/15 text-error': variant === 'danger',
-          'bg-gradient-to-r from-accent to-amber-500 text-background font-semibold': variant === 'premium',
+          'bg-green-50 text-green-700': variant === 'success',
+          'bg-amber-50 text-amber-700': variant === 'warning',
+          'bg-red-50 text-error': variant === 'danger',
+          'bg-accent-container/90 text-on-primary border border-accent-bright/30': variant === 'premium',
         },
         className
       )}

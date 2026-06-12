@@ -40,11 +40,11 @@ export default function LoginPage() {
             <span className="text-foreground">Founder</span>
             <span className="text-accent">Match</span>
           </Link>
-          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2">Willkommen zurück</h1>
+          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2 font-[family-name:var(--font-display)]">Willkommen zurück</h1>
           <p className="text-text-secondary text-sm">Melde dich an, um deine Matches zu sehen.</p>
         </div>
 
-        <div className="bg-surface p-8 rounded-2xl border border-border">
+        <div className="bg-white p-8 rounded-2xl border border-border-light">
           <form onSubmit={handleLogin} className="space-y-4">
             <Input
               id="email"
@@ -65,7 +65,7 @@ export default function LoginPage() {
               required
             />
             {error && <p className="text-sm text-error">{error}</p>}
-            <Button type="submit" className="w-full" size="lg" disabled={loading}>
+            <Button type="submit" className="w-full rounded-full" size="lg" disabled={loading}>
               {loading ? 'Wird angemeldet...' : 'Anmelden'}
             </Button>
           </form>

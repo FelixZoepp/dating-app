@@ -56,13 +56,13 @@ export default function RegisterPage() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="w-full max-w-md text-center animate-fade-in">
-          <div className="bg-surface p-8 rounded-2xl border border-border">
+          <div className="bg-white p-8 rounded-2xl border border-border-light">
             <div className="w-16 h-16 bg-success/15 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-xl font-bold text-foreground mb-2">Bestätige deine E-Mail</h2>
+            <h2 className="text-xl font-bold text-foreground mb-2 font-[family-name:var(--font-display)]">Bestätige deine E-Mail</h2>
             <p className="text-text-secondary text-sm">
               Wir haben dir eine E-Mail an <strong className="text-foreground">{email}</strong> gesendet. Klicke auf den Link, um dein Konto zu aktivieren.
             </p>
@@ -76,15 +76,15 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-bold tracking-tight">
+          <Link href="/" className="text-2xl font-bold tracking-tight font-[family-name:var(--font-display)]">
             <span className="text-foreground">Founder</span>
             <span className="text-accent">Match</span>
           </Link>
-          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2">Bewirb dich jetzt</h1>
+          <h1 className="text-2xl font-bold text-foreground mt-6 mb-2 font-[family-name:var(--font-display)]">Bewirb dich jetzt</h1>
           <p className="text-text-secondary text-sm">Erstelle dein Profil in wenigen Minuten.</p>
         </div>
 
-        <div className="bg-surface p-8 rounded-2xl border border-border">
+        <div className="bg-white p-8 rounded-2xl border border-border-light">
           <form onSubmit={handleRegister} className="space-y-4">
             <Input
               id="email"
@@ -114,7 +114,7 @@ export default function RegisterPage() {
               required
             />
             {error && <p className="text-sm text-error">{error}</p>}
-            <Button type="submit" className="w-full" size="lg" disabled={loading}>
+            <Button type="submit" className="w-full rounded-full" size="lg" disabled={loading}>
               {loading ? 'Wird erstellt...' : 'Account erstellen'}
             </Button>
           </form>

@@ -14,13 +14,13 @@ export function ProgressBar({ value, max = 100, className, showLabel }: Progress
     <div className={cn('w-full', className)}>
       {showLabel && (
         <div className="flex justify-between mb-1">
-          <span className="text-xs text-text-secondary">Fortschritt</span>
-          <span className="text-xs font-medium text-accent">{Math.round(percentage)}%</span>
+          <span className="text-xs text-text-secondary font-[family-name:var(--font-body)]">Fortschritt</span>
+          <span className="text-xs font-medium text-accent font-[family-name:var(--font-body)]">{Math.round(percentage)}%</span>
         </div>
       )}
       <div className="w-full bg-surface-2 rounded-full h-1.5">
         <div
-          className="bg-accent h-1.5 rounded-full transition-all duration-500 ease-out"
+          className="bg-accent-container h-1.5 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>
