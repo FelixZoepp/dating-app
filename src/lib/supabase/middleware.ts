@@ -25,9 +25,16 @@ export async function updateSession(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser();
 
-  // Public routes
-  const publicPaths = ['/', '/login', '/register', '/forgot-password', '/callback'];
-  const isPublicPath = publicPaths.some(path => request.nextUrl.pathname === path);
+  // Public routes — accessible without login
+  const pathname = request.nextUrl.pathname;
+  const isPublicPath =
+    pathname === '/' ||
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/forgot-password' ||
+    pathname === '/callback' ||
+    pathname.startsWith('/api/webhooks') ||
+    pathname === '/manifest.json';
 
   if (!user && !isPublicPath) {
     const url = request.nextUrl.clone();
